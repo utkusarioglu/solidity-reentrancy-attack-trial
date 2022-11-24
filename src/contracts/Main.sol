@@ -5,24 +5,33 @@ pragma solidity 0.8.16;
 import "hardhat/console.sol";
 
 contract Main {
-  string private greeting;
-  uint256 private counter = 0;
+  mapping(address => uint256) userBalances;
 
-  constructor() {
-    greeting = "Hello World!";
+  event ReceiveEther(uint256 amount);
+
+  constructor() {}
+
+  receive() external payable {
+    emit ReceiveEther(msg.value);
   }
 
-  function getGreeting() public view returns (string memory) {
-    console.log("Sending greeting");
-    return greeting;
+  function createToken() external {
+    userBalances[msg.sender] += 1;
   }
 
-  function incrementCounter() public {
-    console.log("Incrementing counter");
-    counter += 1;
+  function getUserBalance() external view returns (uint256) {
+    return userBalances[msg.sender];
   }
 
-  function getCounter() public view returns (uint256) {
-    return counter;
+  function withdraw() external {
+    uint userBalance = userBalances[msg.sender];
+    require(userBalance > 0, "InadequateBalance");
+    payable(address(msg.sender)).transfer(userBalance);
+    userBalances[msg.sender] = 0;
+    console.log(msg.sender, "withdraw");
+  }
+
+  function greeting() public pure returns (string memory) {
+    return "hello world";
   }
 }
