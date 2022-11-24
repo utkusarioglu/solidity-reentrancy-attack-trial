@@ -1,18 +1,18 @@
 {
-  "name": "hardhat-repo-template.templates.utkusarioglu.com",
+  "name": "hardhat.solidity-reentrancy-workshop.workshops.utkusarioglu.com",
   "dockerComposeFile": [
     "../.docker/docker-compose.dev.yml",
     "docker-compose.yml"
   ],
-  "service": "hardhat-repo-template",
-  "workspaceFolder": "/utkusarioglu/templates/hardhat-repo-template",
+  "service": "solidity-reentrancy-workshop-hardhat",
+  "workspaceFolder": "/utkusarioglu-com/workshops/solidity-reentrancy-workshop/hardhat",
   "postCreateCommand": "scripts/post-create-command.sh",
   "customizations": {
     "vscode": {
       "settings": {
         "workbench.colorCustomizations": {
-          "activityBar.background": "#EE0000",
-          "activityBar.foreground": "#000000"
+          "activityBar.background": "#dd4400",
+          "activityBar.foreground": "#FFFFFF"
         }
       },
       "extensions": [

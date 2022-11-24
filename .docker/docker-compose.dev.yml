@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  hardhat-repo-template:
+  solidity-reentrancy-workshop-hardhat:
     image: utkusarioglu/ethereum-devcontainer:1.0.7
     volumes:
-      - ..:/utkusarioglu/templates/hardhat-repo-template
+      - ..:/utkusarioglu-com/workshops/solidity-reentrancy-workshop/hardhat
